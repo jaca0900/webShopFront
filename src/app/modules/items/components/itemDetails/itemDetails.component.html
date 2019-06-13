@@ -1,0 +1,43 @@
+<div class="col-sm-12" style="margin-top: 15px">
+    <div class="card border-dark">
+        <div class="card-header">
+            {{item.name}}
+        </div>
+        <div class="card-body text-dark">
+            <div class="col">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div id="detailsCarousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" style="height: 262px">
+                                    <img class="d-block w-100" src="{{image}}" alt="First slide">
+                                </div>
+                                <div class="carousel-item" style="height: 262px" *ngFor="let image of item.images">
+                                    <img class="d-block w-100" src="{{image}}" alt="First slide">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#detailsCarousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#detailsCarousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <p class="card-text">{{item.description}}</p>
+                        <p class="card-text">This item will be taken off the shop on <b>{{item.endDate}}</b></p>
+                    </div>
+                </div>
+                <div style="float: right">
+                    <h5 class="card-title">{{item.item_price}} PLN</h5>
+                    <button type="button" class="btn btn-outline-primary form-footer" (click)="addToCart()">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

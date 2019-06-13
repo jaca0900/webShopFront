@@ -1,6 +1,8 @@
 export class CONSTANTS {
   public static MAIN_ROUTES = {
-    HOME: '/home',
-    LOGIN: '/login',
+    HOME: '/shop',
+    LOGIN: '/profile/login',
+    SHOP: '/shop',
+    ITEMDETAILS: '/shop/itemDetails'
   };
 }

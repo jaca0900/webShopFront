@@ -11,6 +11,7 @@ export class GenericListComponent<CollectionType> {
   constructor () {}
 
   protected init() {
+    this.displayData = this.total = this.all = [];
     this.sizes = [
       {label: '5', value: 5},
       {label: '10', value: 10},
@@ -21,7 +22,7 @@ export class GenericListComponent<CollectionType> {
     this.selected = <CollectionType> {};
   }
 
-  transformObjectIntroArray (dataObj) {
+  transformObjectIntroArray(dataObj): any[] {
     let array = Object.values(dataObj);
     let i = 0;
     while (i < array.length) {
@@ -38,33 +39,23 @@ export class GenericListComponent<CollectionType> {
     return array;
   }
 
-  search (value) {
+  search(value) {
+    console.log(value);
     const valRegexp = new RegExp(value, 'i');
-    this.all = this.total.filter(forecast => {
+    this.all = this.total.filter(item => {
 
-      const checkArray = this.transformObjectIntroArray(forecast);
+      const checkArray = this.transformObjectIntroArray(item);
       for (const val of checkArray) {
         if (val === value || valRegexp.test(<string> val)) {
           return true;
         }
       }
     });
-    this.pageChange(1);
+
+    this.setView();
   }
 
-  pageChange(newPage: number) {
-    const startIndex = (newPage - 1) * this.maxEntries;
-    const endIndex = startIndex + this.maxEntries;
-    this.displayData = this.all.slice(startIndex, endIndex);
-  }
-
-  setView(size: string) {
-    this.maxEntries = parseInt(size, 10);
-    this.pageChange(1);
-    this.page = 1;
-  }
-
-  select(data: CollectionType) {
-    this.selected = data;
+  setView() {
+    this.displayData = this.all;
   }
 }

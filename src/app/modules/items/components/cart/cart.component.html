@@ -1,0 +1,99 @@
+<div class="col-sm-12 row" style="margin-top: 15px">
+    <div class="col-sm-4 table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-sm table-bordered mb-0">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of cart">
+                    <td>
+                        <img src="{{item.images[0]}}"/>
+                    </td>
+                    <td>
+                        {{item.name}}
+                    </td>
+                    <td>
+                        {{item.item_price}} PLN
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-sm-4 table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-sm table-bordered mb-0">
+            <thead>
+                <tr>
+                    <th colspan="2">To order the items please pay the prices below to the corresponding account numbers</th>
+                </tr>
+                <tr>
+                    <th>Account number</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let account of accounts">
+                    <td>
+                        {{account.number}}
+                    </td>
+                    <td>
+                        {{account.price}} PLN
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-sm-4 no-padding">
+        <form ngNativeValidate
+              (submit)="acceptAndPay()"
+              class="needs-validation row no-padding">
+
+            <div class="form-row col-sm-12">
+                <div class="form-grup col-sm-12 mb-3 spacing-bottom">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Total price {{total}} PLN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row col-sm-12 no-padding">
+                <div class="form-grup col-sm-6 mb-3 spacing-bottom">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">address</span>
+                        </div>
+                        <input type="text" name="address" [(ngModel)]="address" class="form-control" id="address" required>
+                    </div>
+                </div>
+
+                <div class="form-grup col-sm-6 mb-3 spacing-bottom">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Postal code</span>
+                        </div>
+                        <input type="text" name="postal" [(ngModel)]="postal" class="form-control" id="postal" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row col-sm-12 no-padding">
+                <div class="form-grup col-sm-12 mb-3 spacing-bottom">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">City</span>
+                        </div>
+                        <input type="text" name="city" [(ngModel)]="city" class="form-control" id="city" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary form-footer" style="float: right">Accept</button>
+            </div>
+        </form>
+    </div>
+</div>

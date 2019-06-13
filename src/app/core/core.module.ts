@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../modules/shared/shared.module';
-import { LoginModule } from '../modules/login/login.module';
+import { ProfileModule } from '../modules/profile/profile.module';
 import { PageNotFoundModule } from '../modules/page-not-found/page-not-found.module';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NavbarModule } from '../modules/navbar/navbar.module';
+import { ItemModule } from '../modules/items/item.module';
 
 
 @NgModule({
@@ -12,7 +13,7 @@ import { NavbarModule } from '../modules/navbar/navbar.module';
     HttpClientModule,
     SharedModule,
     NavbarModule,
-    LoginModule,
+    ProfileModule,
     PageNotFoundModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
@@ -20,7 +21,7 @@ import { NavbarModule } from '../modules/navbar/navbar.module';
     HttpClientModule,
     SharedModule,
     NavbarModule,
-    LoginModule,
+    ProfileModule,
     PageNotFoundModule
   ]
 })

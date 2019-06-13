@@ -1,0 +1,87 @@
+<div class="col-md-10 offset-md-1">
+  <form ngNativeValidate (submit)="saveItem()" class="spacing-top needs-validation row">
+
+    <div class="col-sm-6">
+
+      <div class="form-grup col-sm-12 mb-3 spacing-bottom">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Name of the item</span>
+          </div>
+          <input type="text" name="name" [(ngModel)]="newItem.name" class="form-control" id="name" required>
+        </div>
+      </div>
+
+      <div class="form-grup col-sm-12 mb-3 spacing-bottom">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Number of items for sale</span>
+          </div>
+          <input type="number" name="quantity" [(ngModel)]="newItem.quantity" class="form-control" id="quantity" required>
+        </div>
+      </div>
+
+      <div class="form-grup col-sm-12 spacing-bottom">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Item price</span>
+          </div>
+          <input type="number" name="item_price" [(ngModel)]="newItem.item_price" class="form-control" id="item_price" required>
+        </div>
+      </div>
+
+      <div class="form-grup col-sm-12 spacing-bottom">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">startDate</span>
+          </div>
+          <input type="text" name="startDate" [(ngModel)]="newItem.startDate" class="form-control" id="startDate" required>
+        </div>
+      </div>
+
+      <div class="form-grup col-sm-12 mb-3 spacing-bottom">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">End date</span>
+          </div>
+          <input type="text" name="endDate" [(ngModel)]="newItem.endDate" id="endDate" class="form-control" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+
+      <div class="form-grup col-sm-12 mb-3 spacing-bottom">
+        <div class="input-group column">
+          <label for="description" class="input-group-text">description</label>
+          <textarea name="description" [(ngModel)]="newItem.description" class="form-control" id="description" required>
+          </textarea>
+        </div>
+      </div>
+
+      <div class="form-grup col-sm-12 mb-3 spacing-bottom">
+        <div class="input-group column">
+          <input type="file" [multiple]="true" accept="image/*" #imageInput class="form-control-file"
+                 (change)="processFile(imageInput)" id="images">
+        </div>
+        <div class="input-group column table-wrapper-scroll-y fileTableContainer">
+          <label class="input-group-text" for="images">Images to upload</label>
+          <table class="table table-sm table-bordered">
+            <tbody>
+            <tr *ngFor="let file of selectedFiles">
+              <td>
+                {{ file.name }}
+              </td>
+              <td>
+                <button class="btn btn-outline-dark" (click)="removeFile(file.name)">remove</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary">Save item</button>
+  </form>
+</div>

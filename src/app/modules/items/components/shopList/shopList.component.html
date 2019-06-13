@@ -1,0 +1,45 @@
+<div class="col-sm-12">
+  <div class="col-sm-4 offset-sm-8 no-padding spacing-top spacing-bottom">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <label class="input-group-text">Enter search phrase</label>
+      </div>
+      <input type="text" class="form-control" type="text" [(ngModel)]="searchVal">
+      <div class="input-group-append">
+        <button type="button" (click)="search(searchVal)" class="btn btn-outline-secondary">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12 table-wrapper-scroll-y my-custom-scrollbar">
+    <table class="table table-sm">
+      <tbody>
+        <tr *ngFor="let item of displayData">
+          <div class="card border-dark margintop">
+            <div class="card-header">
+              {{item.name}}
+            </div>
+            <div class="card-body text-dark">
+              <div class="row">
+                <div class="col-sm-2">
+                  <img class="col-sm-12" src="{{item.images[0]}}">
+                </div>
+                <div class="col-sm-8">
+                  <h5 class="card-title">{{item.item_price}}</h5>
+                  <p class="card-text">{{item.description}}</p>
+
+                  <button type="button" class="btn btn-outline-primary" (click)="addToCart(item)">
+                    Add to Cart
+                  </button>
+                  <button type="button" class="btn btn-outline-dark" (click)="showDetails(item)">
+                    Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

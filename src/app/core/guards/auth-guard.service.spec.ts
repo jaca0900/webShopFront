@@ -2,9 +2,9 @@ import { TestBed, inject } from '@angular/core/testing';
 import { Router } from '@angular/router';
 
 import { AuthGuard } from './auth-guard.service';
-import { AuthService } from '../../modules/login/services/auth/auth.service';
+import { AuthService } from '../../modules/profile/services/auth/auth.service';
 import { AuthServiceSpy } from '../../../mocks/services/auth.service.spy';
-import { LoginComponent } from '../../modules/login/components/login.component';
+import { LoginComponent } from '../../modules/profile/components/login/login.component';
 import { RouterSpy } from '../../../mocks/angular/router.spy';
 
 describe('AuthGuard', () => {

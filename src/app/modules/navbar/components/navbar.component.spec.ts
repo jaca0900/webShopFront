@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { NavbarComponent } from './navbar.component';
-import { AuthService } from '../../login/services/auth/auth.service';
+import { AuthService } from '../../profile/services/auth/auth.service';
 import { AuthServiceSpy } from '../../../../mocks/services/auth.service.spy';
 
 describe('NavbarComponent', () => {
