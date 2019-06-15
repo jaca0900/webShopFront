@@ -24,6 +24,7 @@ export class ItemDetailsComponent implements OnInit {
   }
 
   addToCart() {
+    this.item.images = [ this.image, ... this.item.images ];
     StorageService.addToCart(this.item);
     this.router.navigate([CONSTANTS.MAIN_ROUTES.SHOP]);
   }
