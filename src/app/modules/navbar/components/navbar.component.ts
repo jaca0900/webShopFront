@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from '../../profile/services/auth/auth.service';
 import { Subscription } from 'rxjs';
-import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
+import {Component, OnDestroy, OnInit} from "@angular/core";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',

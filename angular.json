@@ -131,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "AngularSeed"
+  "defaultProject": "AngularSeed",
+  "cli": {
+    "analytics": "9ff409d3-f684-42e7-b1c2-79f37351220e"
+  }
 }

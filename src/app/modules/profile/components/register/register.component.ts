@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from './model/user.interface';
 import { RegisterService } from './services/register.service';
+import {ToastService} from "../../../shared/components/toast/toast.service";
 
 @Component({
   selector: 'app-register',
@@ -11,10 +12,15 @@ export class RegisterComponent implements OnInit {
   user: IUser;
 
   constructor(
-    private registerService: RegisterService
+    private registerService: RegisterService,
+    private toastService: ToastService
   ) {}
 
   ngOnInit() {
+    this.clearUser();
+  }
+
+  clearUser() {
     this.user = {
       id: null,
       first_name: '',
@@ -33,9 +39,20 @@ export class RegisterComponent implements OnInit {
 
     request.subscribe(
       (response) => {
-        console.log('Created User', response);
+        this.clearUser();
+
+        this.toastService.show({
+          title: 'Registration success',
+          message: 'Your user has bean created you can now log in',
+          classname: 'bg-success'
+        });
       }, (error) => {
-        console.error(error);
+
+        this.toastService.show({
+          title: 'Registration Error',
+          message: error.message,
+          classname: 'bg-danger'
+        });
       });
   }
 }
