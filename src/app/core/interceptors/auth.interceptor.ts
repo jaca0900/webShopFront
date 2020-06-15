@@ -8,7 +8,7 @@ import {
   HttpErrorResponse,
   HttpHeaders
 } from '@angular/common/http';
-import { AuthService } from '../../modules/profile/services/auth/auth.service';
+import { ProfileService } from '../../modules/profile/services/auth/profile.service';
 import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { StorageService } from '../../modules/shared/services/storage/storage.service';
@@ -16,7 +16,7 @@ import { StorageService } from '../../modules/shared/services/storage/storage.se
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: ProfileService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 

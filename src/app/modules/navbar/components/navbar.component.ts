@@ -1,4 +1,4 @@
-import { AuthService } from '../../profile/services/auth/auth.service';
+import { ProfileService } from '../../profile/services/auth/profile.service';
 import { Subscription } from 'rxjs';
 import {Component, OnDestroy, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public isLoggedIn = false;
   constructor(
     private router: Router,
-    private authService: AuthService,
+    private authService: ProfileService,
   ) {}
 
   ngOnInit() {

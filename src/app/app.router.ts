@@ -9,6 +9,7 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/shop', pathMatch: 'full' },
   { path: 'profile', loadChildren: './modules/profile/profile.module#ProfileModule' },
   { path: 'shop', loadChildren: './modules/items/item.module#ItemModule' },
+  { path: 'mail', loadChildren: './modules/messaging/message.module#MessageModule'},
   { path: '**', component: PageNotFoundComponent }
 ];
 

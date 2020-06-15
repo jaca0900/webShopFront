@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthService } from '../../services/auth/auth.service';
+import { ProfileService } from '../../services/auth/profile.service';
 import { CONSTANTS } from '../../../shared/constants';
 import { StorageService } from '../../../shared/services/storage/storage.service';
 
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   status: number;
 
   constructor(
-    private authService: AuthService,
+    private authService: ProfileService,
     private router: Router
   ) {}
 

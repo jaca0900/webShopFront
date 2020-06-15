@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from './model/user.interface';
-import { RegisterService } from './services/register.service';
 import {ToastService} from "../../../shared/components/toast/toast.service";
+import {ProfileService} from "../../services/auth/profile.service";
 
 @Component({
   selector: 'app-register',
@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
   user: IUser;
 
   constructor(
-    private registerService: RegisterService,
+    private registerService: ProfileService,
     private toastService: ToastService
   ) {}
 

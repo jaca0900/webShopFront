@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { AuthService } from '../../modules/profile/services/auth/auth.service';
+import { ProfileService } from '../../modules/profile/services/auth/profile.service';
 import { StorageService } from '../../modules/shared/services/storage/storage.service';
 import { CONSTANTS } from '../../modules/shared/constants';
 
@@ -10,7 +10,7 @@ import { CONSTANTS } from '../../modules/shared/constants';
 export class AuthGuard implements CanActivate {
   private guard: boolean;
   constructor(
-    private authService: AuthService,
+    private authService: ProfileService,
     private router: Router,
   ) {}
 

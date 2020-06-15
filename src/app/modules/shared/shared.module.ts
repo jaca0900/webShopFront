@@ -3,10 +3,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {ToastComponent} from "./components/toast/toast.component";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {TableComponent} from "./components/table/table.component";
 
 @NgModule({
   declarations: [
-    ToastComponent
+    ToastComponent,
+    TableComponent
   ],
   imports: [ CommonModule, NgbModule ],
   providers: [],
@@ -16,6 +18,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     FormsModule,
     ReactiveFormsModule,
     ToastComponent,
+    TableComponent,
     NgbModule
   ]
 })

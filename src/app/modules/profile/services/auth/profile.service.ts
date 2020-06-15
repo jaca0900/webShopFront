@@ -8,11 +8,12 @@ import { StorageService } from '../../../shared/services/storage/storage.service
 import { LoginResponse } from '../../../shared/interfaces/login-response.interface';
 import * as uuid from 'uuid';
 import { Observable } from 'rxjs';
+import {IUser} from "../../components/register/model/user.interface";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class ProfileService {
   isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
@@ -36,5 +37,17 @@ export class AuthService {
     StorageService.removeItem('user');
     this.isLoggedIn.next(false);
     this.router.navigate([CONSTANTS.MAIN_ROUTES.LOGIN]);
+  }
+
+  create(user: IUser): Observable<IUser> {
+    return this.http.post<IUser>('http://localhost:8000/user/create', user);
+  }
+
+  getAll(): Observable<IUser[]> {
+    return this.http.get<IUser[]>('http://localhost:8000/user/');
+  }
+
+  getUserById(userId: number): Observable<IUser> {
+    return this.http.get<IUser>('http://localhost:8000/user/byId/' + userId);
   }
 }
