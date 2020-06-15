@@ -3,6 +3,7 @@ import { IItem } from '../../models/item.interface';
 import { ItemService } from '../services/item.service';
 import { FileService } from './services/file.service';
 import { StorageService } from '../../../shared/services/storage/storage.service';
+import {ToastService} from "../../../shared/components/toast/toast.service";
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,9 @@ export class AddItemComponent implements OnInit {
   newItem: IItem;
   selectedFiles: File[];
 
-  constructor (private itemService: ItemService, private fileService: FileService) {}
+  constructor (private itemService: ItemService,
+    private fileService: FileService,
+    private toastService: ToastService) {}
 
   ngOnInit(): void {
 
@@ -39,13 +42,22 @@ export class AddItemComponent implements OnInit {
     this.itemService.create(this.newItem)
       .subscribe((res) => {
         return Promise.all(this.selectedFiles.map(file => {
-          // upload File
-          console.log(res);
           return this.fileService.upload(file, res.id).toPromise();
         }))
-        .catch(err => {
-          console.error(err);
-        });
+          .then(() => {
+            this.toastService.show({
+              title: 'Success',
+              classname: 'bg-success',
+              message: 'Item added successfully'
+            });
+          })
+          .catch(err => {
+            this.toastService.show({
+              title: 'Error',
+              classname: 'bg-danger',
+              message: err.message
+            });
+          });
       }, (err) => {
         console.error(err);
       });

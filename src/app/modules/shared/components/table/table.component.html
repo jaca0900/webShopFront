@@ -1,0 +1,21 @@
+<div *ngIf="filterAndSearch" class="col-sm-4 offset-sm-8 no-padding spacing-top spacing-bottom">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <label class="input-group-text">Enter search phrase</label>
+        </div>
+        <input type="text" class="form-control" type="text" [(ngModel)]="searchVal">
+        <div class="input-group-append">
+            <button type="button" (click)="search(searchVal)" class="btn btn-outline-secondary">Search</button>
+        </div>
+    </div>
+</div>
+<table class="table table-sm table-bordered">
+    <thead *ngIf="withHeader" class="thead-light">
+        <tr>
+            <ng-container *ngTemplateOutlet="tableHeader"></ng-container>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngTemplateOutlet="tableBody"></ng-container>
+    </tbody>
+</table>

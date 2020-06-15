@@ -5,7 +5,7 @@ import { ProfileModule } from '../modules/profile/profile.module';
 import { PageNotFoundModule } from '../modules/page-not-found/page-not-found.module';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NavbarModule } from '../modules/navbar/navbar.module';
-import { ItemModule } from '../modules/items/item.module';
+// import { ItemModule } from '../modules/items/item.module';
 
 
 @NgModule({

@@ -8,7 +8,12 @@
     </li>
   </ul>
 
-  <a class="btn btn-outline-primary" routerLink="/shop/cart">CART</a>
+  <a class="btn btn-outline-primary" routerLink="/mail">
+    <i class="fas fa-envelope"></i>
+  </a>
+  <a class="btn btn-outline-primary" routerLink="/shop/cart">
+    <i class="fas fa-shopping-cart"></i>
+  </a>
   <button *ngIf="isLoggedIn" class="btn btn-outline-primary" (click)="logout()">Logout</button>
   <a *ngIf="!isLoggedIn" class="btn btn-outline-primary" routerLink="/profile/register">Register</a>
   <a *ngIf="!isLoggedIn" class="btn btn-outline-primary" routerLink="/login">Login</a>

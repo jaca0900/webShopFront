@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import {Component, OnInit} from '@angular/core';
 import { StorageService } from './modules/shared/services/storage/storage.service';
 
 @Component({

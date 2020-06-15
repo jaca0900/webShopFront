@@ -1,0 +1,13 @@
+<ngb-toast
+    *ngFor="let toast of toastService.toasts"
+    [class]="toast.classname"
+    [autohide]="true"
+    [delay]="5000"
+    (hide)="toastService.remove(toast.id)">
+
+    <ng-template ngbToastHeader>
+        <strong class="mx-1">{{ toast.title }}</strong> {{ toast.created | date:'mediumTime'}}
+    </ng-template>
+
+     {{ toast.message }}
+</ngb-toast>

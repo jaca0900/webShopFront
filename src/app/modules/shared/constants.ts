@@ -3,6 +3,7 @@ export class CONSTANTS {
     HOME: '/shop',
     LOGIN: '/profile/login',
     SHOP: '/shop',
-    ITEMDETAILS: '/shop/itemDetails'
+    ITEMDETAILS: '/shop/itemDetails',
+    MESSAGEREAD: '/mail/read'
   };
 }
