@@ -50,14 +50,15 @@
 
     <div class="col-sm-4 no-padding">
         <form ngNativeValidate
-              (submit)="acceptAndPay()"
-              class="needs-validation row no-padding">
+              class="needs-validation row no-padding"
+              (submit)="acceptAndPay()">
 
             <div class="form-row col-sm-12">
                 <div class="form-grup col-sm-12 mb-3 spacing-bottom">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Total price {{total}} PLN</span>
+                            <input type="hidden" name="amount" value="{{total}}" />
                         </div>
                     </div>
                 </div>
@@ -92,6 +93,7 @@
                         <input type="text" name="city" [(ngModel)]="city" class="form-control" id="city" required>
                     </div>
                 </div>
+
                 <button type="submit" class="btn btn-primary form-footer" style="float: right">Accept</button>
             </div>
         </form>
