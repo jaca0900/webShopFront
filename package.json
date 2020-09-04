@@ -23,7 +23,7 @@
     "@angular/localize": "^9.1.11",
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
     "core-js": "^2.5.4",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "rxjs": "~6.3.3",
     "tslib": "^2.0.0",
     "uuid": "~3.3.2",
